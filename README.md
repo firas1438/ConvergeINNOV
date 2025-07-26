@@ -9,7 +9,7 @@ This project is a modern, responsive landing page for ConvergeINNOV, featuring a
 - **Framer Motion** (Animation), **Tailwind CSS** (Styling), **Spline** (3D)
 - **NextAuth.js**, **bcryptjs** (Authentication)
 - **MongoDB** (Database), **Mongoose** (ODM)
-- **Upstash Redis** (Serverless DB for dashboard stats — visitor counter for now, expandable)
+- **Upstash Redis** (Serverless DB for dashboard statistics - visitor counter for now, expandable)
 
 
 ## Getting Started
