@@ -2,6 +2,9 @@
 
 This project is a modern, responsive landing page for ConvergeINNOV, featuring a custom dashboard that provides statistics and real-time CRUD operations to efficiently manage page content. 
 
+![App Preview](https://i.imgur.com/u1PU3hw.png)
+
+
 ## Technologies
 
 - **Next.js** (Frontend), **Next.js API Routes** (Backend)
