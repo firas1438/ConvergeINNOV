@@ -19,16 +19,24 @@ export default function AboutDashboard() {
   // fetch data
   useEffect(() => {
     async function fetchAbout() {
+
       try {
         const res = await fetch("/api/about");
         if (!res.ok) throw new Error("Failed to fetch About data");
         const about = await res.json();
-        setData({ _id: about._id, intro: about.intro || "", missions: about.missions.length === 3 ? about.missions : data.missions, metrics: about.metrics.length === 4 ? about.metrics : data.metrics });
+        setData(currentData => ({
+          _id: about._id,
+          intro: about.intro || "",
+          missions: about.missions.length === 3 ? about.missions : currentData.missions,
+          metrics: about.metrics.length === 4 ? about.metrics : currentData.metrics,
+        }));
+
       } catch (error) {
         console.error(error);
         addToast({ title: "Error", description: "Failed to load About data", color: "danger" });
       } finally { setLoading(false); }
     }
+    
     fetchAbout();
   }, []);
 

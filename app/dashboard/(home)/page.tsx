@@ -9,6 +9,10 @@ import { CalendarDate } from "@internationalized/date";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 
+interface Admin { 
+  _id: string; name: string; email: string; createdAt: string; 
+}
+
 
 export default function Dashboard() {
     // fetch user data
@@ -16,7 +20,7 @@ export default function Dashboard() {
     const username = session?.user?.name ?? "User";
 
     // metric variables
-    const [admins, setAdmins] = useState([]);
+    const [admins, setAdmins] = useState<Admin[]>([]);
     const [unreadCount, setUnreadCount] = useState(0);
     const [upcomingCount, setUpcomingCount] = useState(0);
     const [viewerCount, setViewerCount] = useState(0);
@@ -68,7 +72,7 @@ export default function Dashboard() {
           <div>
             <h1 className="text-xl font-semibold">Welcome Back, {username}!</h1>
             <p className="text-sm text-default-500">
-              Here's your dashboard overview for today.
+              Here is your dashboard overview for today.
             </p>
           </div>
         </div>
@@ -111,7 +115,7 @@ export default function Dashboard() {
                   </TableHeader>
                   {/* table body */}
                   <TableBody>
-                    {admins.map((admin: any) => (
+                    {admins.map((admin: Admin) => (
                       <TableRow key={admin._id}>
                         <TableCell>
                           <div className="flex items-center gap-2">
