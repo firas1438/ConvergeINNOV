@@ -3,7 +3,7 @@ import { connectDB } from "@/lib/mongodb";
 import { NextRequest, NextResponse } from "next/server";
 
 // GET method (fetch contact data)
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   await connectDB();
 
   try {
