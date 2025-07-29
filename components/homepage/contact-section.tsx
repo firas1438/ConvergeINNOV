@@ -25,7 +25,7 @@ export default function Contact() {
           Contact
         </h4>
         <p className="max-w-xl text-muted-foreground text-center pb-2">
-          For any questions or business inquiries, please don&rsquo;t hesitate
+          For any questions or business inquiries, please don&rsquo;t hesitate to contact us.
         </p>
       </div>
 
