@@ -14,6 +14,10 @@ This project is a modern, responsive landing page for ConvergeINNOV, featuring a
 - **MongoDB** (Database), **Mongoose** (ODM)
 - **Upstash Redis** (Serverless DB for dashboard statistics - visitor counter for now, expandable)
 
+## Live Demo
+
+Access the live application [here](https://convergeinnov.vercel.app).
+
 
 ## Getting Started
 
