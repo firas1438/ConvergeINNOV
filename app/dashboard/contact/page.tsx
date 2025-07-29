@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { CheckIcon, ClockIcon, EyeNoneIcon, EyeOpenIcon, MagnifyingGlassIcon, QuestionMarkCircledIcon, ValueIcon, ViewGridIcon, ViewHorizontalIcon } from "@radix-ui/react-icons";
+import { CheckIcon, ClockIcon, EyeOpenIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { Card, CardHeader, CardBody, Button, Input, Select, SelectItem, Chip, Skeleton } from "@heroui/react";
 
 type Ticket = {_id: string; name: string; email: string; phone: string; subject: string; message: string; read: boolean; createdAt: string;};
@@ -115,7 +115,7 @@ export default function ContactDashboard() {
                   </Button>
                 )}
               </CardHeader>
-              <CardBody className="pt-1"><p className="text-sm">" {message} "</p></CardBody>
+              <CardBody className="pt-1"><p className="text-sm">{`" ${message} "`}</p></CardBody>
             </Card>
           ))}
         </div>

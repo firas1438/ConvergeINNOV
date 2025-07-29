@@ -30,10 +30,12 @@ export default function ContactForm() {
       // shows success toast and resets form
       addToast({ title: "Message Sent!", description: "We’ve received your message and will get back to you soon.", color: "success" });
       reset();
-    } catch (err: any) {
-      // shows error toast if submission fails
-      addToast({ title: "Submission Failed", description: err.message || "Something went wrong. Please try again.", color: "danger" });
+
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Something went wrong. Please try again.";
+      addToast({ title: "Submission Failed", description: message, color: "danger",});
     }
+
   };
 
   return (

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Input, Textarea, Button, Card, CardBody, Skeleton, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@heroui/react";
-import { TrashIcon, Pencil1Icon, CheckIcon, PlusIcon } from "@radix-ui/react-icons";
+import { TrashIcon, Pencil1Icon, PlusIcon } from "@radix-ui/react-icons";
 import { addToast } from "@heroui/toast";
 
 type FAQItem = { _id?: string; question: string; answer: string };

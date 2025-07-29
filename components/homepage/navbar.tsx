@@ -5,6 +5,8 @@ import { Button } from "@heroui/button";
 import ThemeSwitcher from "../homepage/theme-switcher";
 import { OpenInNewWindowIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
+import Image from "next/image";
+
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,8 +31,8 @@ export default function NavBar() {
       <NavbarContent className="lg:hidden" justify="center">
         <NavbarBrand>
           <Link href="/" className="flex justify-center items-center">
-            <img src="/lightmodelogo.png" alt="ConvergeINNOV Logo" className="block dark:hidden w-auto h-auto max-h-16 min-w-24" />
-            <img src="/darkmodelogo.png" alt="ConvergeINNOV Logo" className="hidden dark:block w-auto h-auto max-h-16 min-w-24" />
+            <Image src="/lightmodelogo.png" alt="ConvergeINNOV Logo" width={96} height={64} className="block dark:hidden w-auto h-auto max-h-16 min-w-24" />
+            <Image src="/darkmodelogo.png" alt="ConvergeINNOV Logo" width={96} height={64} className="hidden dark:block w-auto h-auto max-h-16 min-w-24" />
           </Link>
         </NavbarBrand>
       </NavbarContent>
@@ -55,8 +57,8 @@ export default function NavBar() {
       <NavbarContent className="hidden lg:flex gap-2" justify="center">
         <NavbarBrand>
           <Link href="/" className="flex gap-3 justify-center items-center">
-            <img src="/lightmodelogo.png" alt="ConvergeINNOV Logo" className="block dark:hidden h-16 w-auto lg:mr-4" />
-            <img src="/darkmodelogo.png" alt="ConvergeINNOV Logo" className="hidden dark:block h-16 w-auto lg:mr-4" />
+            <Image src="/lightmodelogo.png" alt="ConvergeINNOV Logo" width={96} height={64} className="block dark:hidden h-16 w-auto lg:mr-4" />
+            <Image src="/darkmodelogo.png" alt="ConvergeINNOV Logo" width={96} height={64} className="hidden dark:block h-16 w-auto lg:mr-4" />
           </Link>
         </NavbarBrand>
         {MenuItems.map((item) => (

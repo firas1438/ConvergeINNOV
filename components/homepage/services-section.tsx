@@ -34,40 +34,26 @@ export default function Services() {
     <section id="services" className="relative pt-32 pb-12 px-4 max-w-screen-xl mx-auto" style={{ minHeight: "600px" }}>
       {/* background gradient */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2, delay: 0.2 }}
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2, delay: 0.2 }}
         className="absolute bottom-[-0px] right-[-150px] w-[250px] h-[250px] bg-gradient-to-br from-[#a4579f] to-[#ffa5ff] opacity-20 blur-[150px] rounded-full pointer-events-none z-0"
       />
 
       <div className="relative z-10 flex flex-col items-center">
         {/* header */}
         <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex flex-col gap-3 justify-center items-center mb-10 max-w-xl text-center"
         >
-          <h4 className="text-2xl font-bold sm:text-3xl bg-gradient-to-b from-foreground to-muted-foreground text-transparent bg-clip-text">
-            Services
-          </h4>
-          <p className="text-muted-foreground">
-            We offer a range of solutions designed to meet our clients' needs.
-          </p>
+          <h4 className="text-2xl font-bold sm:text-3xl bg-gradient-to-b from-foreground to-muted-foreground text-transparent bg-clip-text"> Services </h4>
+          <p className="text-muted-foreground"> We offer a range of solutions designed to meet our clients needs.</p>
         </motion.div>
 
         {/* cards */}
         <div className="grid gap-6 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 place-content-center">
           {serviceItems.map((service, index) => (
             <motion.div
-              key={index}
-              initial={{ y: 20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.2, delay: index * 0.1, ease: "easeOut", }} 
-              whileHover={{ scale: 1.02, transition: { duration: 0.15, ease: "easeOut" }, }}
-              className="group"
+              key={index} initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.2, delay: index * 0.1, ease: "easeOut", }} 
+              whileHover={{ scale: 1.02, transition: { duration: 0.15, ease: "easeOut" }, }} className="group"
             >
               <Card className="py-4 w-full max-w-[360px]">
                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">

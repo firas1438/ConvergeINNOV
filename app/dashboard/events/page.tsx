@@ -17,6 +17,7 @@ export default function EventsDashboard() {
   const { isOpen: isEditOpen, onOpen: onEditOpen, onClose: onEditClose } = useDisclosure();
   const { isOpen: isDeleteOpen, onOpen: onDeleteOpen, onClose: onDeleteClose } = useDisclosure();
 
+  // fetch events
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -82,7 +83,7 @@ export default function EventsDashboard() {
   return (
     <div className="flex flex-col gap-6 px-8 py-4">
       {/* header */}
-      <div className="text-center mb-6">
+      <div className="space-y-1 text-center mb-6">
         <h1 className="text-xl font-semibold">Events Section</h1>
         <p className="text-sm text-default-500">You can manage the list of upcoming and past events.</p>
       </div>
@@ -167,7 +168,7 @@ export default function EventsDashboard() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 ">
           {/* event cards */}
           {events.map((event) => (
-              <Card className="relative overflow-hidden group flex flex-col h-full before:absolute before:inset-0">
+              <Card key={event._id} className="relative overflow-hidden group flex flex-col h-full before:absolute before:inset-0">
                 <Image src={event.image} alt={event.title} className="w-full h-48 object-cover rounded-t-lg flex-shrink-0" removeWrapper />
                 <CardBody className="p-4 space-y-1 flex flex-col flex-grow min-h-[180px]">
                   <div className="flex justify-between items-start mb-2">

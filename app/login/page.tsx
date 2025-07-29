@@ -2,7 +2,9 @@
 import LoginForm from "@/components/auth/loginform";
 import { motion } from "framer-motion";
 import NavBar from "@/components/homepage/navbar";
-import { Card, CardHeader, CardBody, Input, Button, Form } from "@heroui/react";
+import { Card, CardHeader, CardBody } from "@heroui/react";
+import Image from "next/image";
+
 
 export default function Login() {
   return (
@@ -23,8 +25,8 @@ export default function Login() {
             <CardHeader className="flex-col items-center pb-4">
               {/* logo */}
               <div className="mb-6 min-w-24">
-                <img src="/lightmodelogo.png" alt="ConvergeINNOV Light Logo" className="block dark:hidden h-20 w-auto" />
-                <img src="/darkmodelogo.png" alt="ConvergeINNOV Dark Logo" className="hidden dark:block h-20 w-auto" />
+                <Image src="/lightmodelogo.png" alt="ConvergeINNOV Logo" width={160} height={80} className="block dark:hidden h-20 w-auto"/>
+                <Image src="/darkmodelogo.png" alt="ConvergeINNOV Logo" width={160} height={80} className="hidden dark:block h-20 w-auto"/>
               </div>
               {/* header */}
               <h3 className="text-xl sm:text-2xl font-bold text-primary text-center uppercase font-geistMono">Login</h3>

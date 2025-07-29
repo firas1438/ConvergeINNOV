@@ -25,7 +25,7 @@ export default function Contact() {
           Contact
         </h4>
         <p className="max-w-xl text-muted-foreground text-center pb-2">
-          For any questions or business inquiries, please don't hesitate to contact us.
+          For any questions or business inquiries, please don&rsquo;t hesitate
         </p>
       </div>
 
@@ -38,7 +38,7 @@ export default function Contact() {
             {/* header */}
             <CardHeader className="flex-col items-start pb-0 mb-2">
               <h3 className="text-xl font-bold text-primary"> Send Us a Message </h3>
-              <p className="text-sm text-default-500"> We'll respond within 24 hours </p>
+              <p className="text-sm text-default-500"> We&rsquo;ll respond within 24 hours </p>
             </CardHeader>
             
             {/* form */}

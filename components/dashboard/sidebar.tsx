@@ -8,6 +8,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { signOut } from "next-auth/react";
 import { DashboardIcon, InfoCircledIcon, RocketIcon, ChatBubbleIcon, QuestionMarkCircledIcon, CalendarIcon, EnvelopeClosedIcon, ExitIcon,} from "@radix-ui/react-icons";
+import Image from "next/image";
+
 
 const SidebarLinks = [
   { name: "Dashboard", href: "/dashboard", icon: <DashboardIcon className="w-5 h-5" /> },
@@ -35,9 +37,9 @@ export default function Sidebar({ isCollapsed }: SidebarProps) {
       
       {/* logo */}
       <div className="flex items-center justify-center px-1 mb-10 shrink-0">
-        <img src="/logo.png" alt="Mobile ConvergeINNOV Logo" className={`h-16 p-2 w-auto ${isCollapsed ? "block" : "block lg:hidden"}`} />
-        <img src="/lightmodelogo.png" alt="ConvergeINNOV Logo" className={`${isCollapsed ? "hidden" : "hidden lg:block dark:hidden"} h-16 w-auto`} />
-        <img src="/darkmodelogo.png" alt="ConvergeINNOV Logo" className={`${isCollapsed ? "hidden" : "hidden lg:dark:block"} h-16 w-auto`} />
+        <Image src="/logo.png" alt="Mobile ConvergeINNOV Logo" width={64} height={64} className={`p-2 h-16 w-auto ${isCollapsed ? "block" : "block lg:hidden"}`}/>
+        <Image src="/lightmodelogo.png" alt="ConvergeINNOV Light Logo" width={160} height={64} className={`${isCollapsed ? "hidden" : "hidden lg:block dark:hidden"} h-16 w-auto`}/>
+        <Image src="/darkmodelogo.png" alt="ConvergeINNOV Dark Logo" width={160} height={64} className={`${isCollapsed ? "hidden" : "hidden lg:dark:block"} h-16 w-auto`}/>
       </div>
 
       {/* sidebar items */}

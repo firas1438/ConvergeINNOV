@@ -2,16 +2,12 @@
 import { Button } from "@heroui/button";
 import { Link } from "@heroui/link";
 import { Divider } from "@heroui/divider";
-import { 
-  EnvelopeClosedIcon, 
-  MobileIcon, 
-  DrawingPinIcon, 
-  LinkedInLogoIcon,
-  OpenInNewWindowIcon,
-  TwitterLogoIcon,
-} from "@radix-ui/react-icons";
+import { EnvelopeClosedIcon, MobileIcon, DrawingPinIcon,  LinkedInLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
+import Image from "next/image";
+
 
 const Footer = () => {
+
   // quick links
   const quickLinks = [
     { name: "About", href: "/#about" },
@@ -22,6 +18,7 @@ const Footer = () => {
     { name: "Locations", href: "/#locations" },
     { name: "Contact", href: "/#contact" },
   ];
+
   // services
   const services = [
     "XR Technologies Integration",
@@ -32,6 +29,7 @@ const Footer = () => {
     "Transformation DevOps & Cloud",
     "AI Solutions"
   ];
+
   // social links
   const socialLinks = [
     { 
@@ -50,7 +48,6 @@ const Footer = () => {
       icon: <TwitterLogoIcon className="w-5 h-5" />
     }
   ];
-  
 
   return (
     <footer className="w-full bg-gradient-to-b from-background to-background/80 border-t border-divider">
@@ -59,18 +56,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand Section */}
           <div className="lg:col-span-1 lg:pr-10">
+            {/* logo */}
             <div className="flex items-center gap-3 mb-4">
-              <img
-                src="/lightmodelogo.png"
-                alt="ConvergeINNOV Logo"
-                className="block dark:hidden h-16 w-auto"
-              />
-              <img
-                src="/darkmodelogo.png"
-                alt="ConvergeINNOV Logo"
-                className="hidden dark:block h-16 w-auto"
-              />
+              <Image src="/lightmodelogo.png" alt="ConvergeINNOV Logo" height={64} width={160} className="block dark:hidden h-16 w-auto" />
+              <Image src="/darkmodelogo.png" alt="ConvergeINNOV Logo" height={64} width={160} className="hidden dark:block h-16 w-auto"/>
             </div>
+            {/* description */}
             <p className="text-default-500 text-sm mb-6 leading-relaxed text-justify">
               Driving digital transformation through innovative technology
               solutions. Your trusted partner for cutting-edge IT services.
@@ -79,22 +70,14 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex gap-3">
               {socialLinks.map((social) => (
-                <Button
-                  key={social.name}
-                  as={Link}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  isIconOnly
-                  variant="light"
-                  size="sm"
-                  className="text-default-500 transition-colors duration-200"
-                  aria-label={social.name}
+                <Button key={social.name} as={Link} href={social.href} target="_blank" rel="noopener noreferrer" isIconOnly 
+                  variant="light" size="sm" className="text-default-500 transition-colors duration-200" aria-label={social.name}
                 >
                   {social.icon}
                 </Button>
               ))}
             </div>
+
           </div>
 
           {/* Quick Links */}
@@ -102,11 +85,7 @@ const Footer = () => {
             <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
             <div className="flex flex-col gap-2">
               {quickLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="text-default-500 hover:text-primary text-sm transition-colors duration-200"
-                >
+                <Link key={link.name} href={link.href} className="text-default-500 hover:text-primary text-sm transition-colors duration-200">
                   {link.name}
                 </Link>
               ))}
@@ -131,16 +110,10 @@ const Footer = () => {
             <div className="flex flex-col gap-4">
               {/* Email */}
               <div className="flex items-start gap-3">
-                <div className="p-1.5 bg-primary/10 rounded-lg text-primary mt-0.5">
-                  <EnvelopeClosedIcon className="w-4 h-4" />
-                </div>
+                <div className="p-1.5 bg-primary/10 rounded-lg text-primary mt-0.5"> <EnvelopeClosedIcon className="w-4 h-4" /> </div>
                 <div>
-                  <p className="text-default-500 text-sm">
-                    contact@convergeinnov.com
-                  </p>
-                  <p className="text-default-500 text-sm">
-                    rh@convergeinnov.com
-                  </p>
+                  <p className="text-default-500 text-sm"> contact@convergeinnov.com </p>
+                  <p className="text-default-500 text-sm"> rh@convergeinnov.com </p>
                 </div>
               </div>
 
@@ -169,6 +142,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
+
         </div>
 
         <Divider className="mb-8" />
