@@ -13,7 +13,6 @@ import Image from "next/image";
 
 const SidebarLinks = [
   { name: "Dashboard", href: "/dashboard", icon: <DashboardIcon className="w-5 h-5" /> },
-  { name: "Hero", href: "/dashboard/hero", icon: <RocketIcon className="w-5 h-5" /> },
   { name: "About", href: "/dashboard/about", icon: <InfoCircledIcon className="w-5 h-5" /> },
   { name: "Services", href: "/dashboard/services", icon: <RocketIcon className="w-5 h-5" /> },
   { name: "Testimonials", href: "/dashboard/testimonials", icon: <ChatBubbleIcon className="w-5 h-5" /> },
