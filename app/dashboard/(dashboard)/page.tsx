@@ -59,7 +59,7 @@ export default function Dashboard() {
 
     // metrics
     const metrics = [
-      { title: "Visitor Count", value: String(viewerCount), subtitle: "Total visitors" },
+      { title: "Visit Count", value: String(viewerCount), subtitle: "Total visits" },
       { title: "Admin Count", value: String(admins.length), subtitle: "Active admins" },
       { title: "Unread Tickets", value: String(unreadCount), subtitle: "Needs attention" },
       { title: "Upcoming Events", value: String(upcomingCount), subtitle: "Coming soon" },
