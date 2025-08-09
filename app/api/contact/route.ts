@@ -36,3 +36,16 @@ export async function PATCH(request: NextRequest) {
     return NextResponse.json({ error: "Failed to update ticket" }, { status: 500 });
   }
 }
+
+// POST method (create new contact ticket)
+export async function POST(request: NextRequest) {
+  await connectDB();
+  const body = await request.json();
+
+  try {
+    const newContact = await Contact.create({...body, read: false, });
+    return NextResponse.json( { message: "Contact form submitted successfully", contact: newContact }, { status: 201 });
+  } catch (err) {
+    return NextResponse.json( { error: "Failed to submit contact form" }, { status: 500 });
+  }
+}

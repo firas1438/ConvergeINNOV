@@ -6,12 +6,7 @@ import ContactForm from "./forms/contactform";
 
 export default function Contact() {
   return (
-    <motion.section
-      id="contact"
-      initial={{ y: 20, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 1, delay: 0.5, type: "spring", bounce: 0 }}
+    <motion.section id="contact" initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.5, type: "spring", bounce: 0 }}
       className="relative max-w-screen-xl w-full mx-auto px-4 py-28 gap-5 md:px-8 flex flex-col justify-center items-center"
     >
       {/* background gradient top right */}
@@ -51,24 +46,14 @@ export default function Contact() {
 
         {/* contact info */}
         <motion.div className="flex-1">
-          <Card
-            className="h-full bg-gradient-to-br from-card/80 via-card to-card/60 p-5"
-            style={{ transform: "scale(0.97)" }}
-          >
+          <Card className="h-full bg-gradient-to-br from-card/80 via-card to-card/60 p-5" style={{ transform: "scale(0.97)" }} >
             <CardHeader className="flex-col items-start pb-0 mb-3">
-              <h3 className="text-xl font-bold text-primary">
-                Contact Information
-              </h3>
-              <p className="text-sm text-default-500">
-                Connect with us directly
-              </p>
+              <h3 className="text-xl font-bold text-primary"> Contact Information </h3>
+              <p className="text-sm text-default-500"> Connect with us directly </p>
             </CardHeader>
             <CardBody className="gap-4">
               <div className="flex items-start gap-4">
-                <motion.div
-                  whileHover={{ scale: 1.15 }}
-                  className="p-2 bg-primary/10 rounded-lg text-primary"
-                >
+                <motion.div whileHover={{ scale: 1.15 }} className="p-2 bg-primary/10 rounded-lg text-primary">
                   <EnvelopeClosedIcon className="w-5 h-5" />
                 </motion.div>
                 <div>
@@ -78,52 +63,29 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <motion.div
-                  whileHover={{ scale: 1.15 }}
-                  className="p-2 bg-primary/10 rounded-lg text-primary"
-                >
-                  <MobileIcon className="w-5 h-5" />
-                </motion.div>
+                <motion.div whileHover={{ scale: 1.15 }} className="p-2 bg-primary/10 rounded-lg text-primary"> <MobileIcon className="w-5 h-5" /></motion.div>
                 <div>
                   <h4 className="font-medium mb-1">Phone</h4>
                   <div className="grid grid-cols-2 gap-x-8 text-default-500">
-                    <p>+216 23198524</p>
-                    <p>+216 97131795</p>
-                    <p>+33 667563880</p>
-                    <p>+974 50690165</p>
+                    <p>+216 23198524</p> <p>+216 97131795</p> <p>+33 667563880</p> <p>+974 50690165</p>
                   </div>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <motion.div
-                  whileHover={{ scale: 1.15 }}
-                  className="p-2 bg-primary/10 rounded-lg text-primary"
-                >
+                <motion.div whileHover={{ scale: 1.15 }} className="p-2 bg-primary/10 rounded-lg text-primary">
                   <DrawingPinIcon className="w-5 h-5" />
                 </motion.div>
                 <div>
                   <h4 className="font-medium">Address</h4>
-                  <p className="text-default-500">
-                    France: 135 Rue Du Plessis Bouchard 95130 Francoville
-                  </p>
-                  <p className="text-default-500">
-                    Tunisia: B19 Pole Technologique 4054 Sahloul
-                  </p>
+                  <p className="text-default-500"> France: 135 Rue Du Plessis Bouchard 95130 Francoville </p>
+                  <p className="text-default-500"> Tunisia: B19 Pole Technologique 4054 Sahloul </p>
                 </div>
               </div>
 
               <div>
-                <a
-                  href="https://www.linkedin.com/company/convergeinnov/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-4"
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.15 }}
-                    className="p-2 bg-primary/10 rounded-lg text-primary"
-                  >
+                <a href="https://www.linkedin.com/company/convergeinnov/" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4">
+                  <motion.div whileHover={{ scale: 1.15 }} className="p-2 bg-primary/10 rounded-lg text-primary" >
                     <LinkedInLogoIcon className="w-5 h-5" />
                   </motion.div>
                   <div>

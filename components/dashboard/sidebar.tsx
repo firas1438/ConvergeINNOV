@@ -48,13 +48,7 @@ export default function Sidebar({ isCollapsed }: SidebarProps) {
             const isActive = pathname === item.href;
             return (
               <Tooltip key={item.name} showArrow={true} content={item.name} placement="right" isDisabled={!isCollapsed} className="text-sm">
-                <Button
-                  as={Link}
-                  href={item.href}
-                  variant={isActive ? "solid" : "light"}
-                  size="md"
-                  className={`w-full transition-all duration-200 ${isActive ? "bg-primary/10 text-primary font-semibold" : "hover:bg-default-100"}`}
-                >
+                <Button as={Link} href={item.href} variant={isActive ? "solid" : "light"} size="md" className={`w-full transition-all duration-200 ${isActive ? "bg-primary/10 text-primary font-semibold" : "hover:bg-default-100"}`}>
                   <div className={`flex items-center gap-3 w-full ${isCollapsed ? "justify-center" : "justify-center lg:justify-start"}`}>
                     <span className="flex-shrink-0">{item.icon}</span>
                     <span className={`${isCollapsed ? "hidden" : "hidden lg:inline"} whitespace-nowrap`}>{item.name}</span>

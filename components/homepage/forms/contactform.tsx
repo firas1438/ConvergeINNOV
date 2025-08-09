@@ -35,7 +35,6 @@ export default function ContactForm() {
       const message = err instanceof Error ? err.message : "Something went wrong. Please try again.";
       addToast({ title: "Submission Failed", description: message, color: "danger",});
     }
-
   };
 
   return (
