@@ -14,16 +14,12 @@ This project is a modern, responsive landing page for ConvergeINNOV, featuring a
 - **MongoDB** (Database), **Mongoose** (ODM)
 - **Upstash Redis** (Serverless DB for dashboard statistics - visitor counter for now, expandable)
 
-## Live Demo
-
-Access the live application [here](https://convergeinnov.vercel.app).
-
 
 ## Getting Started
 
 To get started with this project, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/firas1438/ConvergeINNOV`
+1. Clone the repository: `git clone https://github.com/houssemeddinembarek/convergeinnov-app.git`
 2. Install the dependencies: `npm install`
 3. Start the development server: `npm run dev`
 
