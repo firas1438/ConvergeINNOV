@@ -33,7 +33,7 @@ export default function Services() {
   return (
     <section id="services" className="relative pt-32 pb-12 px-4 max-w-screen-xl mx-auto" style={{ minHeight: "600px" }}>
       {/* background gradient */}
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2, delay: 0.2 }} className="absolute bottom-[-0px] right-[-150px] w-[250px] h-[250px] bg-gradient-to-br from-[#a4579f] to-[#ffa5ff] opacity-20 blur-[150px] rounded-full pointer-events-none z-0"/>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2, delay: 0.2 }} className="absolute bottom-[160px] right-[-160px] w-[250px] h-[250px] bg-gradient-to-br from-[#a4579f] to-[#ffa5ff] opacity-20 blur-[150px] rounded-full pointer-events-none z-0"/>
 
       <div className="relative z-10 flex flex-col items-center">
         {/* header */}

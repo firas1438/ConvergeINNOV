@@ -19,9 +19,11 @@ export default function ThemeSwitcher() {
   };
 
   return (
-    <Button isIconOnly variant="light" onPress={handleClick}>
-      {svg}
-    </Button>
+    <div>
+      {/* <Button isIconOnly variant="light" onPress={handleClick}>
+        {svg}
+      </Button> */}
+    </div>
   );
 }
 

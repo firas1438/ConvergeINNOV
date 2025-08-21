@@ -7,7 +7,7 @@ import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@herou
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { signOut } from "next-auth/react";
-import { DashboardIcon, InfoCircledIcon, RocketIcon, ChatBubbleIcon, QuestionMarkCircledIcon, CalendarIcon, EnvelopeClosedIcon, ExitIcon,} from "@radix-ui/react-icons";
+import { DashboardIcon, InfoCircledIcon, RocketIcon, ChatBubbleIcon, QuestionMarkCircledIcon, CalendarIcon, EnvelopeClosedIcon, ExitIcon, PersonIcon,} from "@radix-ui/react-icons";
 import Image from "next/image";
 
 
@@ -15,6 +15,7 @@ const SidebarLinks = [
   { name: "Dashboard", href: "/dashboard", icon: <DashboardIcon className="w-5 h-5" /> },
   { name: "About", href: "/dashboard/about", icon: <InfoCircledIcon className="w-5 h-5" /> },
   { name: "Services", href: "/dashboard/services", icon: <RocketIcon className="w-5 h-5" /> },
+  { name: "Partners", href: "/dashboard/partners", icon: <PersonIcon className="w-5 h-5" /> },
   { name: "Testimonials", href: "/dashboard/testimonials", icon: <ChatBubbleIcon className="w-5 h-5" /> },
   { name: "FAQ", href: "/dashboard/faq", icon: <QuestionMarkCircledIcon className="w-5 h-5" /> },
   { name: "Events", href: "/dashboard/events", icon: <CalendarIcon className="w-5 h-5" /> },

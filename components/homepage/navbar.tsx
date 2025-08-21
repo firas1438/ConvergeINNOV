@@ -3,10 +3,9 @@ import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, Navba
 import Link from "next/link";
 import { Button } from "@heroui/button";
 import ThemeSwitcher from "../homepage/theme-switcher";
-import { OpenInNewWindowIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
 import Image from "next/image";
-
+//import { OpenInNewWindowIcon } from "@radix-ui/react-icons";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
