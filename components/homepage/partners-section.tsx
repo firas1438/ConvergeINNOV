@@ -1,35 +1,58 @@
 "use client";
 import { motion } from "framer-motion";
 import { Tooltip } from "@heroui/tooltip";
-import Image from "next/image";
+import { Image } from "@heroui/react"; 
 import Marquee from "react-fast-marquee";
+import { useEffect, useState } from "react";
+
+{/* data structure */}
+type PartnerItem = {
+  _id: string;
+  name: string;
+  description: string;
+  imagepath: string;
+};
 
 export default function Partners() {
-  // List of partner images and names
-  const images = [
-    { name: "Partner 1", src: "/partners/image1.png", description: "An example is a commodity sale such as a long distance salesperson, shoe salesperson and to a degree a car salesperson. Their job is to find and convert buyers. A sales farmer is someone who creates sales demand through activities that directly influence and alter the buying process." },
-    { name: "Partner 2", src: "/partners/image2.png", description: "" },
-    { name: "Partner 3", src: "/partners/image3.png", description: "" },
-    { name: "Partner 4", src: "/partners/image4.png", description: "" },
-  ];
+  const [partnerItems, setPartnerItems] = useState<PartnerItem[]>([]);
+
+  {/* fetch data from /api/partners */}
+  useEffect(() => {
+    const fetchPartners = async () => {
+      try {
+        const res = await fetch("/api/partners");
+        if (!res.ok) throw new Error("Failed to fetch data");
+        const data = await res.json();
+        setPartnerItems(data);
+      } catch (error) {
+        console.error("Failed to load partners", error);
+      }
+    };
+
+    fetchPartners();
+  }, []);
 
   return (
     <section id="partners" className="relative max-w-screen-xl w-full mx-auto px-4 pt-24 py-12 gap-10 md:px-8 flex flex-col justify-center items-center text-center">
-      <motion.div initial={{ y: 20, opacity: 0, filter: "blur(3px)" }} whileInView={{ y: 0, opacity: 1, filter: "blur(0px)" }} viewport={{ once: true }} transition={{ duration: 0.5, type: "spring", bounce: 0 }} className="flex flex-col gap-3">
-        {/* header */}
+      {/* header */}
+      <motion.div initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut" }} className="text-center mb-2 flex flex-col gap-3">
         <h4 className="text-2xl font-bold sm:text-3xl bg-gradient-to-b from-foreground to-muted-foreground text-transparent bg-clip-text">
           Partners
         </h4>
+        <p className="mx-auto max-w-xl text-muted-foreground text-center">
+          Join our partners who are shaping the future with us.
+        </p>
       </motion.div>
-      {/* marquee*/}
-      <Marquee autoFill pauseOnHover gradient gradientColor="#131316" gradientWidth={100}>
-          <div className="flex items-center justify-center gap-8 px-4">
-            {images.map((img, index) => (
-              <Tooltip content={img.description} key={img.name} className="max-w-sm">
-                <Image src={img.src} alt={img.name} width={100} height={50} className="w-auto" />
-              </Tooltip>
-            ))}
-          </div>
+
+      {/* marquee */}
+      <Marquee autoFill pauseOnHover gradient gradientColor="#131316" gradientWidth={100} >
+        <div className="flex items-center justify-center gap-8 px-4">
+          {partnerItems.map((partner) => (
+            <Tooltip content={partner.description} key={partner._id} className="max-w-sm">
+              <Image src={partner.imagepath} alt={partner.name} width={100} height={50} className="w-auto h-12 object-contain"/>
+            </Tooltip>
+          ))}
+        </div>
       </Marquee>
     </section>
   );
