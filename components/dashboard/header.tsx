@@ -8,7 +8,7 @@ import { useSession } from "next-auth/react";
 
 
 
-import ThemeSwitcher from "../homepage/theme-switcher";
+import ThemeSwitcher from "../theme-switcher";
 
 type HeaderProps = { onToggleSidebar: () => void; isSidebarCollapsed: boolean;};
 

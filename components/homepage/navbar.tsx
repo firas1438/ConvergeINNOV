@@ -2,7 +2,7 @@
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from "@heroui/navbar";
 import Link from "next/link";
 import { Button } from "@heroui/button";
-import ThemeSwitcher from "../homepage/theme-switcher";
+import ThemeSwitcher from "../theme-switcher";
 import { useState } from "react";
 import Image from "next/image";
 //import { OpenInNewWindowIcon } from "@radix-ui/react-icons";
