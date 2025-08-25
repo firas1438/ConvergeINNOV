@@ -6,10 +6,10 @@ import { Tooltip } from "@heroui/tooltip";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@heroui/modal";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
 import { signOut } from "next-auth/react";
-import { DashboardIcon, InfoCircledIcon, RocketIcon, ChatBubbleIcon, QuestionMarkCircledIcon, CalendarIcon, EnvelopeClosedIcon, ExitIcon, PersonIcon,} from "@radix-ui/react-icons";
+import { DashboardIcon, InfoCircledIcon, RocketIcon, ChatBubbleIcon, QuestionMarkCircledIcon, CalendarIcon, EnvelopeClosedIcon, ExitIcon, PersonIcon, MixIcon, FaceIcon, ValueIcon, RowsIcon, PlusIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
-
 
 const SidebarLinks = [
   { name: "Dashboard", href: "/dashboard", icon: <DashboardIcon className="w-5 h-5" /> },
@@ -20,6 +20,7 @@ const SidebarLinks = [
   { name: "FAQ", href: "/dashboard/faq", icon: <QuestionMarkCircledIcon className="w-5 h-5" /> },
   { name: "Events", href: "/dashboard/events", icon: <CalendarIcon className="w-5 h-5" /> },
   { name: "Contact", href: "/dashboard/contact", icon: <EnvelopeClosedIcon className="w-5 h-5" /> },
+  { name: "Registrations", href: "/dashboard/registrations", icon: <PlusIcon className="w-5 h-5" /> },
 ];
 
 type SidebarProps = { isCollapsed: boolean };
@@ -27,6 +28,7 @@ type SidebarProps = { isCollapsed: boolean };
 export default function Sidebar({ isCollapsed }: SidebarProps) {
   const pathname = usePathname();
   const [isLogoutModalOpen, setLogoutModalOpen] = useState(false);
+  const { data: session } = useSession();
 
   const openLogoutModal = () => setLogoutModalOpen(true);
   const closeLogoutModal = () => setLogoutModalOpen(false);
@@ -46,6 +48,7 @@ export default function Sidebar({ isCollapsed }: SidebarProps) {
       <div className="flex-1 overflow-y-auto mb-8">
         <nav className="flex flex-col gap-2">
           {SidebarLinks.map((item) => {
+            if (item.name === "Registrations" && session?.user?.role !== "Super") { return null;}
             const isActive = pathname === item.href;
             return (
               <Tooltip key={item.name} showArrow={true} content={item.name} placement="right" isDisabled={!isCollapsed} className="text-sm">

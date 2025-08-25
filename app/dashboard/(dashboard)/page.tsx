@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 
 interface Admin { 
-  _id: string; name: string; email: string; createdAt: string; 
+  _id: string; name: string; email: string; createdAt: string; role: string;
 }
 
 
@@ -128,9 +128,7 @@ export default function Dashboard() {
                         </TableCell>
                         <TableCell>{admin.email}</TableCell>
                         <TableCell>{new Date(admin.createdAt).toLocaleDateString()}</TableCell>
-                        <TableCell>
-                          <span className="text-primary font-semibold">Admin</span>
-                        </TableCell>
+                        <TableCell><span className="text-primary font-semibold">{admin.role}</span></TableCell>
                       </TableRow>
                     ))}
                   </TableBody>

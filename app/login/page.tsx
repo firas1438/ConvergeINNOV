@@ -3,7 +3,7 @@ import LoginForm from "@/components/login/loginform";
 import { motion } from "framer-motion";
 import { Card, CardHeader, CardBody } from "@heroui/react";
 import Image from "next/image";
-import ReturnButton from "@/components/login/return-button";
+import ReturnButton from "@/components/return-button";
 
 export default function Login() {
   return (
