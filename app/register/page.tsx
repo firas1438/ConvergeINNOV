@@ -1,9 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
-import { Card, CardHeader, CardBody } from "@heroui/react";
+import { Button, Card, CardHeader, CardBody } from "@heroui/react";
 import Image from "next/image";
 import ReturnButton from "@/components/return-button";
 import RegistrationForm from "@/components/register/registrationform";
+import Link from "next/link";
+import { EnterIcon } from "@radix-ui/react-icons";
 
 
 export default function Login() {
@@ -16,9 +18,14 @@ export default function Login() {
         </div>
       </motion.div>
 
-      {/* return button */}
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="p-4">
-        <ReturnButton/>
+      {/* buttons container */}
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="flex justify-between items-center p-4">
+        {/* return button */}
+        <ReturnButton />
+        {/* register button */}
+        <Button as={Link} href="/login" variant="light" startContent={<EnterIcon/>} className="text-primary font-bold">
+          Login
+        </Button>
       </motion.div>
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="relative flex-1 flex items-center justify-center px-4 py-8 overflow-y-auto">

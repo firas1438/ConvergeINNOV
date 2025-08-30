@@ -3,18 +3,20 @@
 import {Card,CardHeader,CardBody} from "@heroui/card";
 import {Table,TableHeader,TableBody,TableRow,TableCell,TableColumn} from "@heroui/table";
 import { Avatar } from "@heroui/avatar";
-import { PersonIcon } from "@radix-ui/react-icons";
+import { PersonIcon, TrashIcon } from "@radix-ui/react-icons";
 import { Calendar } from "@heroui/calendar";
 import { CalendarDate } from "@internationalized/date";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
+import { Tooltip, Button } from "@heroui/react";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@heroui/modal";
+import { addToast } from "@heroui/toast";
 
-interface Admin { 
-  _id: string; name: string; email: string; createdAt: string; role: string;
-}
 
+interface Admin { _id: string; name: string; email: string; createdAt: string; role: string; }
 
 export default function Dashboard() {
+  
     // fetch user data
     const { data: session } = useSession();
     const username = session?.user?.name ?? "User";
@@ -24,6 +26,12 @@ export default function Dashboard() {
     const [unreadCount, setUnreadCount] = useState(0);
     const [upcomingCount, setUpcomingCount] = useState(0);
     const [viewerCount, setViewerCount] = useState(0);
+
+    // delete admin modal
+    const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
+    const [selectedAdmin, setSelectedAdmin] = useState<Admin | null>(null);
+    const openDeleteModal = (admin: Admin) => { setSelectedAdmin(admin); setDeleteModalOpen(true); };
+    const closeDeleteModal = () => { setSelectedAdmin(null); setDeleteModalOpen(false);};
 
     // fetch metrics
     useEffect(() => {
@@ -57,6 +65,23 @@ export default function Dashboard() {
 
       fetchAllMetrics();
     }, []);
+
+    // delete admin
+    const handleDelete = async () => {
+      if (!selectedAdmin) return;
+      try {
+        const res = await fetch(`/api/users/${selectedAdmin._id}`, { method: "DELETE",});
+        if (res.ok) { 
+          setAdmins((prev) => prev.filter((a) => a._id !== selectedAdmin._id));
+          addToast({ title: "Deleted", description: "User deleted successfully", color: "success" });
+        }
+      } catch (err) {
+        console.error("Error deleting admin :", err);
+        addToast({ title: "Error", description: "Failed to delete user", color: "danger" });
+      } finally {
+        closeDeleteModal();
+      }
+    };
 
     // metrics
     const metrics = [
@@ -96,7 +121,6 @@ export default function Dashboard() {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-4">
-          
           {/* table */}
           <div className="w-full lg:w-[80%]">
             <Card className="px-4 py-2">
@@ -113,6 +137,7 @@ export default function Dashboard() {
                     <TableColumn>Email</TableColumn>
                     <TableColumn>Creation Date</TableColumn>
                     <TableColumn>Role</TableColumn>
+                    <TableColumn> </TableColumn>
                   </TableHeader>
                   {/* table body */}
                   <TableBody>
@@ -120,15 +145,24 @@ export default function Dashboard() {
                       <TableRow key={admin._id}>
                         <TableCell>
                           <div className="flex items-center gap-2">
-                            <Avatar className="w-8 h-8 flex-shrink-0">
-                              <PersonIcon className="w-4 h-4" />
-                            </Avatar>
-                            <span>{admin.name}</span>
+                            <Avatar className="w-8 h-8 flex-shrink-0"><PersonIcon className="w-4 h-4" /></Avatar> <span>{admin.name}</span>
                           </div>
                         </TableCell>
                         <TableCell>{admin.email}</TableCell>
                         <TableCell>{new Date(admin.createdAt).toLocaleDateString()}</TableCell>
                         <TableCell><span className="text-primary font-semibold">{admin.role}</span></TableCell>
+                        {/* delete user */}
+                        <TableCell>
+                          {session?.user?.role === "Super" && admin.role !== "Super" && (
+                            <div className="flex justify-center">
+                              <Tooltip content="Delete">
+                                <Button isIconOnly size="sm" variant="flat" color="danger" onPress={() => openDeleteModal(admin)}>
+                                  <TrashIcon />
+                                </Button>
+                              </Tooltip>
+                            </div>)}
+                        </TableCell>
+
                       </TableRow>
                     ))}
                   </TableBody>
@@ -136,9 +170,8 @@ export default function Dashboard() {
               </CardBody>
             </Card>
           </div>
-
           {/* calendar */}
-          <div className="w-full lg:w-[28%]">
+          <div className="w-full lg:w-[27%]">
             <Card className="h-full px-4 py-2">
               <CardHeader>
                 <h2 className="text-md font-medium text-foreground">Calendar</h2>
@@ -148,8 +181,27 @@ export default function Dashboard() {
               </CardBody>
             </Card>
           </div>
-
         </div>
+
+        {/* delete confirmation modal */}
+        <Modal backdrop="blur" isOpen={isDeleteModalOpen} onClose={closeDeleteModal}>
+          <ModalContent>
+            {() => (
+              <>
+                <ModalHeader>Confirm Deletion</ModalHeader>
+                <ModalBody>
+                  <p className="size-xs">
+                    Are you sure you want to delete{" "} <span className="font-semibold">{selectedAdmin?.name}</span>?
+                  </p>
+                </ModalBody>
+                <ModalFooter>
+                  <Button variant="light" color="danger" onPress={closeDeleteModal}> Cancel </Button>
+                  <Button color="primary" onPress={handleDelete}> Confirm </Button>
+                </ModalFooter>
+              </>
+            )}
+          </ModalContent>
+        </Modal>
 
       </div>
     );

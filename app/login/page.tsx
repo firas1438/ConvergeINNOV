@@ -19,9 +19,9 @@ export default function Login() {
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="p-4">
         <ReturnButton/>
       </motion.div>
-
+      
+      {/* card */}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="relative flex-1 flex items-center justify-center px-4 py-8 overflow-y-auto">
-        {/* card */}
         <div className="w-full max-w-md z-10 my-8">
           <Card className="bg-gradient-to-br from-card/80 via-card to-card/60 px-6 shadow-xl rounded-2xl">
             {/* card header */}

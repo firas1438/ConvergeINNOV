@@ -8,7 +8,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { signOut } from "next-auth/react";
-import { DashboardIcon, InfoCircledIcon, RocketIcon, ChatBubbleIcon, QuestionMarkCircledIcon, CalendarIcon, EnvelopeClosedIcon, ExitIcon, PersonIcon, MixIcon, FaceIcon, ValueIcon, RowsIcon, PlusIcon } from "@radix-ui/react-icons";
+import { DashboardIcon, InfoCircledIcon, RocketIcon, ChatBubbleIcon, QuestionMarkCircledIcon, CalendarIcon, EnvelopeClosedIcon, ExitIcon, PersonIcon, ClipboardIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 
 const SidebarLinks = [
@@ -20,7 +20,7 @@ const SidebarLinks = [
   { name: "FAQ", href: "/dashboard/faq", icon: <QuestionMarkCircledIcon className="w-5 h-5" /> },
   { name: "Events", href: "/dashboard/events", icon: <CalendarIcon className="w-5 h-5" /> },
   { name: "Contact", href: "/dashboard/contact", icon: <EnvelopeClosedIcon className="w-5 h-5" /> },
-  { name: "Registrations", href: "/dashboard/registrations", icon: <PlusIcon className="w-5 h-5" /> },
+  { name: "Registrations", href: "/dashboard/registrations", icon: <ClipboardIcon className="w-5 h-5" /> },
 ];
 
 type SidebarProps = { isCollapsed: boolean };
