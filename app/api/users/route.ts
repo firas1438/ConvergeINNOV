@@ -6,7 +6,7 @@ import User from "@/models/user";
 export async function GET() {
   try {
     await connectDB();
-    const users = await User.find().select("-password"); // All users, no password
+    const users = await User.find().select("-password").sort({ role: -1, createdAt: 1 }); 
     const count = await User.countDocuments(); // total user count
 
     return NextResponse.json({ count, users });
