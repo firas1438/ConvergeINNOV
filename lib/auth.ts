@@ -7,28 +7,17 @@ import bcrypt from "bcryptjs";
 // extend NextAuth types to include name, id, email, and role in session and user
 declare module "next-auth" {
   interface Session {
-    user: {
-      id: string;
-      name?: string;
-      email: string;
-      role: string;
-    };
+    user: { id: string; name?: string; email: string; role: string;};
   }
 
-  interface User {
-    id: string; // MongoDB user ID
-    name?: string;
-    email: string;
-    role: string; // Role from User model
+  interface User { 
+    id: string;  name?: string; email: string; role: string; 
   }
 }
 
 declare module "next-auth/jwt" {
-  interface JWT {
-    id: string;
-    name?: string;
-    email: string;
-    role: string;
+  interface JWT { 
+    id: string; name?: string; email: string; role: string;
   }
 }
 
@@ -60,12 +49,12 @@ export const authOptions: NextAuthOptions = {
   },
 
   callbacks: {
-    // Add name, id, email, and role to JWT
+    // add name, id, email, and role to JWT
     async jwt({ token, user }) {
       if (user) { token.id = user.id; token.name = user.name; token.email = user.email; token.role = user.role; }
       return token;
     },
-    // Add name, id, email, and role to session
+    // add name, id, email, and role to session
     async session({ session, token }) {
       if (token) { session.user.id = token.id; session.user.name = token.name;  session.user.email = token.email; session.user.role = token.role;}
       return session;

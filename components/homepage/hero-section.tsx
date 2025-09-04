@@ -46,7 +46,7 @@ export default function Hero() {
 
       {/* particles background */}
       <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-          <Particles particleColors={['#ffffff', '#ffffff']} particleCount={300} particleSpread={16} speed={0.02} particleBaseSize={50} moveParticlesOnHover={false} alphaParticles={false} disableRotation={false} />
+          <Particles particleColors={['#ffffff', '#ffffff']} particleCount={300} particleSpread={16} speed={0.02} particleBaseSize={31} moveParticlesOnHover={false} alphaParticles={false} disableRotation={false} />
       </div>
 
     </div>
