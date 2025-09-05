@@ -26,11 +26,14 @@ export default function LoginForm() {
   const onSubmit = async (data: SignupFormValues) => {
       setServerError("");
       const res = await registerUser({ email: data.email, password: data.password, name: data.name });
+      if (res?.success) {
+        addToast({ title: "Registration submitted!", description: "Your registration request is pending until an admin approves it.", color:"default", timeout: 10000, shouldShowTimeoutProgress: true });
+        router.push("/login");
+      }
       if (res?.error) {
         setServerError(res.error);
         return;
       }
-      addToast({ title: "Registration successful", description: "Your registration request is pending admin approval.", variant: "bordered", timeout: 6000, shouldShowTimeoutProgress: true });
   };
 
   return (

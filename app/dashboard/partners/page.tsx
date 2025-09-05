@@ -174,7 +174,7 @@ export default function PartnerDashboard() {
         )}</ModalContent>
       </Modal>
 
-      {/* Partners Card */}
+      {/* skeleton cards */}
       {loading ? (
         <div className="grid gap-6 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {[...Array(3)].map((_, i) => (
@@ -188,6 +188,7 @@ export default function PartnerDashboard() {
         <p className="text-red-500">No partners found.</p>
       ) : (
         <div className="grid gap-6 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {/* partners */}
           {partners.map((p) => (
             <Card key={p._id} className="py-4 w-full max-w-[300px]">
               <CardHeader className="pb-0 pt-2 px-4 flex-col items-start"><h4 className="font-bold text-large">{p.name}</h4></CardHeader>

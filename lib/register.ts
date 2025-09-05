@@ -28,7 +28,7 @@ export const register = async (values: UserAccount) => {
 
     // save to DB
     const savedRequest = await registration.save();
-    return { success: true, requestId: savedRequest._id };
+    return { success: true, requestId: savedRequest._id.toString() };
 
   } catch (e) {
     console.error("Registration error: ", e);

@@ -73,7 +73,7 @@ export default function Dashboard() {
         const res = await fetch(`/api/users/${selectedAdmin._id}`, { method: "DELETE",});
         if (res.ok) { 
           setAdmins((prev) => prev.filter((a) => a._id !== selectedAdmin._id));
-          addToast({ title: "Deleted", description: "User deleted successfully", color: "success" });
+          addToast({ title: "User Deleted", description: "Admin has been deleted successfully!", color: "success" });
         }
       } catch (err) {
         console.error("Error deleting admin :", err);
@@ -162,7 +162,6 @@ export default function Dashboard() {
                               </Tooltip>
                             </div>)}
                         </TableCell>
-
                       </TableRow>
                     ))}
                   </TableBody>
