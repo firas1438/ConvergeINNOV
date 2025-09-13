@@ -5,7 +5,7 @@ import { Button } from "@heroui/button";
 import ThemeSwitcher from "../theme-switcher";
 import { useState } from "react";
 import Image from "next/image";
-//import { OpenInNewWindowIcon } from "@radix-ui/react-icons";
+import { OpenInNewWindowIcon } from "@radix-ui/react-icons";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,12 +44,12 @@ export default function NavBar() {
               href={item.href} onClick={() => setIsMenuOpen(false)}>{item.name}</Link>
           </NavbarMenuItem>
         ))}
-        {/* <NavbarMenuItem>
-          <Link href="/login" onClick={() => setIsMenuOpen(false)}
+        <NavbarMenuItem>
+          <Link href="/dashboard" onClick={() => setIsMenuOpen(false)}
             className="w-full group flex justify-between text-sm items-center bg-primary text-primary-foreground font-medium px-4 py-2 rounded-xl transition-colors duration-200 hover:bg-primary/90">
-            Login <OpenInNewWindowIcon className="w-4 h-4" />
+            Dashboard <OpenInNewWindowIcon className="w-4 h-4" />
           </Link>
-        </NavbarMenuItem> */}
+        </NavbarMenuItem>
       </NavbarMenu>
 
       {/* Desktop Menu */}
@@ -69,11 +69,11 @@ export default function NavBar() {
 
       {/* Desktop SignIn Button */}
       <NavbarContent justify="end">
-        {/* <NavbarItem className="hidden lg:flex">
-          <Button as={Link} color="primary" variant="solid" size="sm" endContent={<OpenInNewWindowIcon className="w-4 h-4" />} className="hidden lg:flex rounded-3xl px-5 font-geist" href="/login">
-              Login
+        <NavbarItem className="hidden lg:flex">
+          <Button as={Link} color="primary" variant="solid" size="sm" endContent={<OpenInNewWindowIcon className="w-4 h-4" />} className="hidden lg:flex rounded-3xl px-5 font-geist" href="/dashboard">
+            Dashboard
           </Button>
-        </NavbarItem> */}
+        </NavbarItem>
         <NavbarItem><ThemeSwitcher /></NavbarItem>
       </NavbarContent>
 

@@ -123,7 +123,7 @@ export default function PartnerDashboard() {
               <Input type="file" accept="image/*" onChange={(e) => { const file = e.target.files?.[0]; if (file) setNewFile(file); }} />
               {newFile && (
                 <div className="flex justify-center my-2">
-                  <Image src={URL.createObjectURL(newFile)} alt="Preview" width={75} height={75} className="rounded-md"/>
+                  <Image src={URL.createObjectURL(newFile)} alt="Preview" width={75} height={75} className="rounded-md dark:filter-none filter invert"/>
                 </div>
               )}
             </ModalBody>
@@ -147,7 +147,7 @@ export default function PartnerDashboard() {
                 <Input type="file" accept="image/*" onChange={(e) => { const file = e.target.files?.[0]; if (file) setEditFile(file); }} />
                 {(editFile || editPartner.imagepath) && (
                   <div className="flex justify-center my-2">
-                    <Image src={editFile ? URL.createObjectURL(editFile) : editPartner.imagepath} alt="Preview" width={75} height={75} className="rounded-md"/>
+                    <Image src={editFile ? URL.createObjectURL(editFile) : editPartner.imagepath} alt="Preview" width={75} height={75} className="rounded-md dark:filter-none filter invert"/>
                   </div>
                 )}
               </ModalBody>
@@ -195,7 +195,7 @@ export default function PartnerDashboard() {
                 <CardBody className="flex justify-center items-center mt-2">
                   <div className="flex justify-center w-full">
                     <Tooltip content={p.description} className="max-w-sm">
-                      <Image src={p.imagepath} alt={p.name} width={100} height={75} className="rounded-xl object-contain"/>
+                      <Image src={p.imagepath} alt={p.name} width={100} height={75} className="rounded-xl object-contain dark:filter-none filter invert"/>
                     </Tooltip>
                   </div>
                 </CardBody>

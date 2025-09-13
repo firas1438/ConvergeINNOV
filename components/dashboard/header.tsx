@@ -35,11 +35,10 @@ export default function Header({ onToggleSidebar, isSidebarCollapsed }: HeaderPr
         
         {/* helper icons */}
         <NavbarItem>
-          <div>
+          <div className="flex items-center gap-1">
             <Button isIconOnly as={Link} href="/" target="_blank" rel="noopener noreferrer" variant="light" > <EyeOpenIcon/> </Button>
             <ThemeSwitcher />
           </div>
-          
         </NavbarItem>
 
 

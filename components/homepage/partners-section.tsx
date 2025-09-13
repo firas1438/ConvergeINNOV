@@ -44,16 +44,24 @@ export default function Partners() {
         </p>
       </motion.div>
 
-      {/* marquee */}
-      <Marquee autoFill pauseOnHover gradient gradientColor="#131316" gradientWidth={100} >
-        <div className="flex items-center justify-center gap-8 px-4">
-          {partnerItems.map((partner) => (
-            <Tooltip content={partner.description} key={partner._id} className="max-w-sm">
-              <Image src={partner.imagepath} alt={partner.name} width={100} height={50} className="w-auto h-12 object-contain"/>
-            </Tooltip>
-          ))}
-        </div>
-      </Marquee>
+      {/* partners */}
+      <div className="relative w-full max-w-7xl mx-auto overflow-hidden">
+        {/* left gradient */}
+        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 sm:w-20 lg:w-60 bg-gradient-to-r from-background to-transparent" />
+        {/* right gradient */}
+        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 sm:w-20 lg:w-60 bg-gradient-to-l from-background to-transparent" />
+        {/* marquee */}
+        <Marquee autoFill pauseOnHover>
+          <div className="flex items-center justify-center gap-8 px-4">
+            {partnerItems.map((partner) => (
+              <Tooltip content={partner.description} key={partner._id} className="max-w-sm">
+                <Image src={partner.imagepath} alt={partner.name} width={100} height={50} className="w-auto h-12 object-contain dark:filter-none filter invert" />
+              </Tooltip>
+            ))}
+          </div>
+        </Marquee>
+      </div>
+
     </section>
   );
 }
