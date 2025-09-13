@@ -38,9 +38,9 @@ export default function RegistrationDashboard() {
       setRegistrations((prev) => prev.map((r) => (r._id === actionReg.id ? { ...r, status: "approved" } : r)) );
       addToast({ title: "Approved", description: `${actionReg.name} has been approved`, color: "success" });
       onApproveClose();
-    } catch (err: any) {
+    } catch (err) {
       console.error(err);
-      addToast({ title: "Error", description: err.message, color: "danger" });
+      addToast({ title: "Error", description: "Failed to approve registration", color: "danger" });
     }
   };
 
@@ -54,9 +54,9 @@ export default function RegistrationDashboard() {
       setRegistrations((prev) => prev.map((r) => (r._id === actionReg.id ? { ...r, status: "declined" } : r)));
       addToast({ title: "Declined", description: `${actionReg.name} has been declined`, color: "danger" });
       onDeclineClose();
-    } catch (err: any) {
+    } catch (err) {
       console.error(err);
-      addToast({ title: "Error", description: err.message, color: "danger" });
+      addToast({ title: "Error", description: "Failed to decline registration", color: "danger" });
     }
   };
 

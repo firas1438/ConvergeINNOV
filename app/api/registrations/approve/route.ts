@@ -23,7 +23,7 @@ export async function POST(req: Request) {
     await request.save();
 
     return NextResponse.json({ success: true });
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message }, { status: 500 });
+  } catch (err) {
+    return NextResponse.json({ error: "Failed to approve registration" }, { status: 500 });
   }
 }

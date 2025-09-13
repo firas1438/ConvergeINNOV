@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Card, CardHeader, CardBody } from "@heroui/react";
+import { Card, CardHeader } from "@heroui/react";
 import Image from "next/image";
 import ReturnButton from "@/components/return-button";
 
