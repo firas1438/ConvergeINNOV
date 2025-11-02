@@ -56,7 +56,7 @@ export default function NavBar() {
       <NavbarContent className="hidden lg:flex gap-2" justify="center">
         <NavbarBrand>
           <Link href="/" className="flex items-center justify-center">
-            <div className="relative h-36 w-36 lg:mr-4">
+            <div className="relative h-14 w-36 lg:mr-4">
               <Image src="/lightmodelogo.png" alt="ConvergeINNOV Logo" fill className="object-contain block dark:hidden" priority />
               <Image src="/darkmodelogo.png" alt="ConvergeINNOV Logo" fill className="object-contain hidden dark:block" priority />
             </div>
