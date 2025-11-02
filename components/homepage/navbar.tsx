@@ -1,4 +1,3 @@
-"use client";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from "@heroui/navbar";
 import Link from "next/link";
 import { Button } from "@heroui/button";
@@ -6,6 +5,7 @@ import ThemeSwitcher from "../theme-switcher";
 import { useState } from "react";
 import Image from "next/image";
 import { OpenInNewWindowIcon } from "@radix-ui/react-icons";
+
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,9 +55,11 @@ export default function NavBar() {
       {/* Desktop Menu */}
       <NavbarContent className="hidden lg:flex gap-2" justify="center">
         <NavbarBrand>
-          <Link href="/" className="flex gap-3 justify-center items-center">
-            <Image src="/lightmodelogo.png" alt="ConvergeINNOV Logo" width={96} height={64} className="block dark:hidden h-16 w-auto lg:mr-4" />
-            <Image src="/darkmodelogo.png" alt="ConvergeINNOV Logo" width={96} height={64} className="hidden dark:block h-16 w-auto lg:mr-4" />
+          <Link href="/" className="flex items-center justify-center">
+            <div className="relative h-36 w-36 lg:mr-4">
+              <Image src="/lightmodelogo.png" alt="ConvergeINNOV Logo" fill className="object-contain block dark:hidden" priority />
+              <Image src="/darkmodelogo.png" alt="ConvergeINNOV Logo" fill className="object-contain hidden dark:block" priority />
+            </div>
           </Link>
         </NavbarBrand>
         {MenuItems.map((item) => (

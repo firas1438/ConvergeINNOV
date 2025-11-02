@@ -15,11 +15,7 @@ const geistMono = localFont({ src: "../public/fonts/GeistMonoVF.woff", variable:
 const cinzel = localFont({ src: "../public/fonts/Cinzel-Regular.woff", variable: "--font-cinzel", weight: "100 900" });
 
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} ${cinzel.variable} antialiased`}>

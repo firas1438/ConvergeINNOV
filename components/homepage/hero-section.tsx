@@ -13,7 +13,7 @@ export default function Hero() {
       <section id="hero" className="z-10 w-full max-w-screen-xl mx-auto px-4 pt-24 pb-12 md:pt-24 gap-12 md:px-8 flex flex-col justify-center items-center">
         <motion.div className="z-10 flex flex-col justify-center items-center space-y-6 w-full max-w-4xl mx-auto text-center px-4 sm:px-0">
           {/* animated border text */}
-          <motion.div initial={{ scale: 1, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.8, ease: "easeOut" }} className="relative w-fit rounded-3xl p-[1px] overflow-hidden mb-1">
+          <motion.div initial={{ scale: 1, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }} className="relative w-fit rounded-3xl p-[1px] overflow-hidden mb-1">
             <span className="absolute inset-[-500%] md:inset-[-1000%] animate-[spin_6s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#a4579f_0%,#c98fc5_50%,#f0d6ef_70%,#eeeeec_100%)] opacity-80 hover:opacity-100 transition-opacity" />
             <span className="relative w-fit h-full text-sm bg-card px-4 py-2 rounded-3xl font-cinzel block backdrop-blur-sm">
               ConvergeINNOV
@@ -24,7 +24,7 @@ export default function Hero() {
             Cutting-Edge AR/VR, Metaverse & Custom Web/Mobile Experiences
           </motion.h1>
           {/* description */}
-          <motion.p initial={{ y: 0, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }} className="w-full max-w-xl text-base sm:text-lg mx-auto text-muted-foreground ">
+          <motion.p initial={{ y: 0, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }} className="w-full max-w-xl text-base sm:text-lg mx-auto text-muted-foreground ">
             We craft tailored immersive and interactive digital solutions to transform your business vision into reality.
           </motion.p>
           {/* 3d model */}
